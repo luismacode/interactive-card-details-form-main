@@ -38,11 +38,17 @@ input:focus{
     width: 100%;
     min-height: 100vh;
     background-color: var(--white);
-}   
+}  
 .header{
-    position: relative;
     background-color: var(--very-dark-violet);
     height: 30vh;
+}
+.card-container{
+    position: relative;
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+    height: inherit;
 }
 .card{
     width:290px;
@@ -52,6 +58,7 @@ input:focus{
     background-repeat: no-repeat;
     background-size: cover;
 }
+ 
 .card--front{
     left:1em;
     bottom:-3em;
@@ -91,11 +98,16 @@ input:focus{
     position: absolute;
     font-size: 1.1rem;
     color: var(--white);
-    transform: translate(235px,60px);
+    top:6rem;
+    right:3rem;
 }
 
 .form{
+    width:100%;
+    max-width: 400px;
     padding: 6em 2em 0em 2em;
+    margin-left: auto;
+    margin-right: auto;
 }
 .form__fieldset{
     border: none;
@@ -151,4 +163,68 @@ input:focus{
   }
 .attribution a {
     color: hsl(228, 45%, 44%);
+}
+@media screen and (min-width:1024px){
+    .main{
+        height: 100vh;
+    }
+    .row{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header{
+        height: 100vh;
+    }
+    .form{
+        width: 300px;
+        padding: 0;
+    }
+    .column-30{
+        flex-basis:30%;
+    }
+    .column-70{
+        flex-basis:70%;
+    }
+    .card{
+        width:350px;
+        height: 200px;
+    }
+    .card--front{
+        bottom:52%;
+        left:40%;
+    }
+    .card--back{
+        top:52%;
+        right:-44%;
+    }
+    .form__field{
+        margin-bottom: 3rem;
+    }
+    .attribution{
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    .card__number{
+        margin-bottom: 1rem;
+    }
+    .card__number span{
+        font-size: 2.2rem;
+    }
+    .card__cvc{
+        top:8rem;
+    }
+}
+
+@media screen and (min-width:1400px){
+    .card-container{
+        height: 800px;
+        transform: translate(13%,12%);
+    }
+    .form{
+        width: 450px;
+    }
 }
