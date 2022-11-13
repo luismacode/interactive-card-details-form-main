@@ -33,10 +33,7 @@
                   </figure>
                   <div class="card__details">
                     <p class="card__number">
-                      <span>0000</span>
-                      <span>0000</span>
-                      <span>0000</span>
-                      <span>0000</span>
+                      <span>0000 0000 0000 0000</span>
                     </p>
                     <div>
                       <p class="card__holder">Jane Appleseed</p>
@@ -49,47 +46,91 @@
           </div>
         </div>
         <div class="column-70">
-          <form class="form">
+          <form class="form" id="form">
             <fieldset class="form__fieldset">
               <div class="form__field">
-                <label class="form__label" for="cardHolder"
+                <label class="form__label" for="card-holder"
                   >CardHolder Name</label
                 >
                 <input
                   class="form__input"
-                  id="cardHolder"
+                  type="text"
+                  id="card-holder"
                   placeholder="e.g Jane Appleseed"
+                  name="cardholder"
                 />
+                <span class="form__error form__error--cardholder"></span>
               </div>
               <div class="form__field">
-                <label class="form__label" for="cardNumber">Card Number</label>
+                <label class="form__label" for="card-number">Card Number</label>
                 <input
                   class="form__input"
-                  id="cardNumber"
+                  type="text"
+                  id="card-number"
                   placeholder="e.g 1234 5678 9123 0000"
+                  name="cardname"
+                  maxlength="19"
                 />
+                <span class="form__error form__error--cardnumber"></span>
               </div>
               <div class="form__row">
                 <div class="form__column">
-                  <label class="form__label" for="cardholder">Exp. date</label>
-                  <input class="form__input" id="cardholder" placeholder="MM" />
-                </div>
-                <div class="form__column">
-                  <label class="form__label" for="cardholder">(mm/yy)</label>
-                  <input class="form__input" id="cardholder" placeholder="YY" />
-                </div>
-                <div class="form__column form__column--cvc">
-                  <label class="form__label" for="cardholder">cvc</label>
+                  <label class="form__label" for="expiration-month"
+                    >Exp. date</label
+                  >
                   <input
                     class="form__input"
-                    id="cardholder"
-                    placeholder="e.g 123"
+                    type="text"
+                    id="expiration-month"
+                    placeholder="MM"
+                    maxlength="2"
+                    name="expiration-month"
                   />
+                  <span
+                    class="form__error form__error--expiration-month"
+                  ></span>
+                </div>
+                <div class="form__column">
+                  <label class="form__label" for="expiration-year"
+                    >(mm/yy)</label
+                  >
+                  <input
+                    class="form__input"
+                    type="text"
+                    id="expiration-year"
+                    placeholder="YY"
+                    maxlength="2"
+                    name="expiration-year"
+                  />
+                  <span class="form__error form__error-expiration-year"></span>
+                </div>
+                <div class="form__column form__column--cvc">
+                  <label class="form__label" for="card-cvc">cvc</label>
+                  <input
+                    class="form__input"
+                    type="text"
+                    id="card-cvc"
+                    placeholder="e.g 123"
+                    maxlength="3"
+                    name="cardcvc"
+                  />
+                  <span class="form__error form__error-cvc"></span>
                 </div>
               </div>
               <input class="button" type="submit" value="Confirm" />
             </fieldset>
           </form>
+          <section class="confirmation">
+            <img
+              alt="icon-complete"
+              src="./images/icon-complete.svg"
+              width="100"
+              height="100"
+            />
+            <h1 class="confirmation__title">Thank you!</h1>
+            <p class="confirmation__message">We've added your card details</p>
+            <button type="button" class="confirmation__button">Continue</button>
+          </section>
         </div>
       </div>
     </main>

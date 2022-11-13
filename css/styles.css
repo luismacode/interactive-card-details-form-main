@@ -145,6 +145,11 @@ input:focus{
     flex-basis: 350px;
     margin-right: 0;
 }
+.form__error{
+    color: var(--red);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
 
 .button{
     width: 100%;
@@ -154,6 +159,38 @@ input:focus{
     border-radius: .5em;
     border: none;
     font-size: 1.6rem;
+}
+
+.confirmation{
+    display: none;
+    width: 350px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.confirmation__title{
+    padding-top: .5em;
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .4rem;
+    margin-bottom: .5em;
+}
+.confirmation__message{
+    color: var(--dark-grayish-violet);
+    font-weight: 500;
+    margin-bottom: 2.4em;
+    font-size: 1.8rem;
+}
+.confirmation__button{
+    display: block;
+    width: 100%;
+    padding: .6em 1em;
+    border-radius: .3em;
+    border: none;
+    background-color: var(--very-dark-violet);
+    color: var(--white);
+    font-size: 2rem;
 }
 
 .attribution {
@@ -212,11 +249,16 @@ input:focus{
         margin-bottom: 1rem;
     }
     .card__number span{
-        font-size: 2.2rem;
+        font-size: 2.15rem;
     }
     .card__cvc{
         top:8rem;
+        font-size: 1.2rem;
     }
+    .card__holder,.card__expiration-date{
+        font-size: 1.2rem;
+    }
+
 }
 
 @media screen and (min-width:1400px){
