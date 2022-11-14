@@ -93,6 +93,7 @@ input:focus{
 .card__number{
     font-size: 1.6rem;
     letter-spacing: .2em;
+    text-transform: uppercase;
 }
 .card__cvc{
     position: absolute;
@@ -150,8 +151,7 @@ input:focus{
     font-size: 1.2rem;
     font-weight: 600;
 }
-
-.button{
+.form__button{
     width: 100%;
     height: 42px;
     background-color: var(--very-dark-violet);
@@ -216,7 +216,7 @@ input:focus{
         height: 100vh;
     }
     .form{
-        width: 300px;
+        width: 320px;
         padding: 0;
     }
     .column-30{
@@ -247,9 +247,7 @@ input:focus{
     }
     .card__number{
         margin-bottom: 1rem;
-    }
-    .card__number span{
-        font-size: 2.15rem;
+        font-size: 2rem;
     }
     .card__cvc{
         top:8rem;
