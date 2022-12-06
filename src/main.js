@@ -1,7 +1,8 @@
 import {
   showMessageError,
   hideMessageError,
-  validatefieldfilled,
+  validateFillField,
+  validateLetter,
 } from "./helpers/index.js";
 
 const cardHolder = document.querySelector(".card__holder"),
@@ -26,6 +27,9 @@ const cardCvc = document.querySelector(".card__cvc"),
   cvcError = document.querySelector(".form__error--cvc");
 
 const confirmButton = document.querySelector(".form__button");
+
+const form = document.querySelector(".form");
+const confirmation = document.querySelector(".confirmation");
 
 inputHolder.addEventListener("input", (e) => {
   cardHolder.textContent = e.target.value;
@@ -85,9 +89,9 @@ inputCvc.addEventListener("input", (e) => {
 
 confirmButton.addEventListener("click", (e) => {
   e.preventDefault();
-  validatefieldfilled(inputHolder.value, inputHolder, cardHolderError);
+  validateFillField(inputHolder.value, inputHolder, cardHolderError);
 
-  validatefieldfilled(inputNumber.value, inputNumber, cardNumberError);
+  validateFillField(inputNumber.value, inputNumber, cardNumberError);
   if (inputNumber.value.length > 0 && inputNumber.value.length < 19) {
     showMessageError(inputNumber, cardNumberError, "wrong card number");
   }
@@ -98,7 +102,12 @@ confirmButton.addEventListener("click", (e) => {
   if (inputExpirationMonth.value.length !== 2) {
     showMessageError(inputExpirationMonth, expirationMonthError, "wrong month");
   }
-  validatefieldfilled(
+  validateFillField(
+    inputExpirationMonth.value,
+    inputExpirationMonth,
+    expirationMonthError
+  );
+  validateLetter(
     inputExpirationMonth.value,
     inputExpirationMonth,
     expirationMonthError
@@ -110,18 +119,35 @@ confirmButton.addEventListener("click", (e) => {
   if (inputExpirationYear.value.length !== 2) {
     showMessageError(inputExpirationYear, expirationYearError, "wrong year");
   }
-  validatefieldfilled(
+  validateFillField(
+    inputExpirationYear.value,
+    inputExpirationYear,
+    expirationYearError
+  );
+  validateLetter(
     inputExpirationYear.value,
     inputExpirationYear,
     expirationYearError
   );
 
-  const regExp = /[A-z]/g;
-  if (regExp.test(inputCvc.value)) {
-    showMessageError(inputCvc, cvcError, "there can't letter");
-  }
   if (inputCvc.value.length !== 3) {
     showMessageError(inputCvc, cvcError, "wrong cvc");
   }
-  validatefieldfilled(inputCvc.value, inputCvc, cvcError);
+  validateFillField(inputCvc.value, inputCvc, cvcError);
+  validateLetter(inputCvc.value, inputCvc, cvcError);
+
+  if (
+    inputHolder.dataset.isfill === "true" &&
+    inputNumber.dataset.isfill === "true" &&
+    inputExpirationMonth.dataset.isfill === "true" &&
+    inputExpirationMonth.dataset.hasletter === "false" &&
+    inputExpirationYear.dataset.isfill === "true" &&
+    inputExpirationYear.dataset.hasletter === "false" &&
+    inputCvc.dataset.isfill === "true" &&
+    inputCvc.dataset.hasletter === "false"
+  ) {
+    console.log("it show the confirmation section");
+    form.style.display = "none";
+    confirmation.style.display = "block";
+  }
 });
