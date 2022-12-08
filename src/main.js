@@ -90,11 +90,13 @@ inputCvc.addEventListener("input", (e) => {
 confirmButton.addEventListener("click", (e) => {
   e.preventDefault();
   validateFillField(inputHolder.value, inputHolder, cardHolderError);
+  validateCharacter(inputHolder.value, inputHolder, cardHolderError);
 
-  validateFillField(inputNumber.value, inputNumber, cardNumberError);
   if (inputNumber.value.length > 0 && inputNumber.value.length < 19) {
     showMessageError(inputNumber, cardNumberError, "wrong card number");
   }
+  validateFillField(inputNumber.value, inputNumber, cardNumberError);
+  validateLetter(inputNumber.value, inputNumber, cardNumberError);
 
   if (inputExpirationMonth.value < 0 || inputExpirationMonth.value > 12) {
     showMessageError(inputExpirationMonth, expirationMonthError, "wrong month");
@@ -139,6 +141,7 @@ confirmButton.addEventListener("click", (e) => {
   if (
     inputHolder.dataset.isfill === "true" &&
     inputNumber.dataset.isfill === "true" &&
+    inputNumber.dataset.hasletter === "false" &&
     inputExpirationMonth.dataset.isfill === "true" &&
     inputExpirationMonth.dataset.hasletter === "false" &&
     inputExpirationYear.dataset.isfill === "true" &&
@@ -146,7 +149,6 @@ confirmButton.addEventListener("click", (e) => {
     inputCvc.dataset.isfill === "true" &&
     inputCvc.dataset.hasletter === "false"
   ) {
-    console.log("it show the confirmation section");
     form.style.display = "none";
     confirmation.style.display = "block";
   }

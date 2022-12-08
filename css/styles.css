@@ -16,10 +16,7 @@ body{
     font-family: 'Space Grotesk';
     margin: 0;
 }
-input:focus{
-    border: none;
-    outline: none;
-}
+
 ::placeholder{
     font-size: 1.8rem;
     color:hsl(270, 3%, 87%);
@@ -40,7 +37,9 @@ input:focus{
     background-color: var(--white);
 }  
 .header{
-    background-color: var(--very-dark-violet);
+    background-image: url(../images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 30vh;
 }
 .card-container{
@@ -109,6 +108,7 @@ input:focus{
     padding: 6em 2em 0em 2em;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 6em;
 }
 .form__fieldset{
     border: none;
@@ -163,6 +163,7 @@ input:focus{
 
 .confirmation{
     display: none;
+    margin-top:5em;
     width: 350px;
     text-align: center;
     margin-left: auto;
@@ -214,10 +215,12 @@ input:focus{
     }
     .header{
         height: 100vh;
+        background-image: url(../images/bg-main-desktop.png);
     }
     .form{
         width: 320px;
         padding: 0;
+        margin-bottom: 0;
     }
     .column-30{
         flex-basis:30%;
@@ -266,5 +269,15 @@ input:focus{
     }
     .form{
         width: 450px;
+    }
+}
+input:focus{
+    outline: none;
+    border: none;
+}
+@media (hover:hover){
+    input:hover{
+        cursor: pointer;
+        outline: 1px solid var(--very-dark-violet);
     }
 }
